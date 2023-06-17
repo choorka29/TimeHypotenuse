@@ -1,11 +1,7 @@
 import time
 
-def calc_hypotenuse(a, b):
-    c = (a**2 + b**2) ** 0.5
-    return c
-
 def log_calc_hypotenuse(func):
-    def wrapper(a, b):
+    def timer(a, b):
         start_time = time.time()
         result = func(a, b)
         end_time = time.time()
@@ -17,7 +13,7 @@ def log_calc_hypotenuse(func):
         print(f"Время выполнения функции: {end_time - start_time} сек")
 
         return result
-    return wrapper
+    return timer
 
 @log_calc_hypotenuse
 def calc_hypotenuse(a, b):
